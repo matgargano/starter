@@ -1,0 +1,31 @@
+{
+  "name": "mgargano/{{SITE_NAME}}",
+  "description": "wordpress setup for {{SITE_NAME}}",
+  "license": "proprietary",
+  "config": {
+    "vendor-dir": "web/app/mu-plugins"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://wpackagist.org"
+    }
+  ],
+  "require": {
+    "johnpbloch/wordpress": "4.3.1",
+    "mnsami/composer-custom-directory-installer": "1.0.*",
+    "vlucas/phpdotenv": "~2.0",
+    "wpackagist-plugin/wp-original-media-path": "~1.4",
+    "mgargano/non-production-robots-ignore": "0.1"
+  },
+  "extra": {
+    "webroot-dir": "wp",
+    "wordpress-install-dir": "./web/wp",
+    "installer-paths": {
+      "./phpdotenv/": ["vlucas/phpdotenv"],
+      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
+      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "web/app/themes/{$name}/": ["type:wordpress-theme"]
+    }
+  }
+}
